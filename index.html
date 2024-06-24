@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cathepsins</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #555;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #666;
+        }
+        nav a.active {
+            background-color: #888;
+            color: #fff;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        iframe {
+            width: 100%;
+            height: calc(100vh - 120px); /* Adjust the height considering header and nav */
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Expression of Cathepsins from Preclinical RNASeq experiments<br>Please pick a study</h1>
+    </header>
+    <nav>
+        <a href="index_capi.html" target="content-frame" class="active" onclick="setActive(this)">Capivasertib</a>
+        <a href="index_palbo.html" target="content-frame" onclick="setActive(this)">Palbociclib</a>
+        <a href="index_pacli.html" target="content-frame" onclick="setActive(this)">Paclitaxel</a>
+    </nav>
+    <div class="content">
+        <iframe name="content-frame" src="index_capi.html"></iframe>
+    </div>
+
+    <script>
+        function setActive(element) {
+            var links = document.querySelectorAll('nav a');
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+    </script>
+</body>
+</html>
